@@ -4,16 +4,18 @@ require 'base64'
 module OmniAuth
   module Strategies
     class PolarOauth2 < OmniAuth::Strategies::OAuth2
+      option :name, 'polar_oauth2'
 
       option :client_options,
         {
           :site           => '',
           :authorize_url  => 'https://flow.polar.com/oauth2/authorization',
           :token_url      => 'https://polarremote.com/v2/oauth2/token'
+
         }
 
-      option :authorize_option, [:response_type, :scope, state]
-      optoin :response_type, 'code'
+      option :authorize_option, [:response_type, :scope, :state]
+      option :response_type, 'code'
 
       def build_access_token
         options.token_params.merge!(:headers =>
