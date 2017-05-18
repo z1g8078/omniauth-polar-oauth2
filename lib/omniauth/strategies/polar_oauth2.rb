@@ -24,7 +24,7 @@ module OmniAuth
       end
 
       def basic_auth_header
-        'Basic ' + Base64.encode64(options[:client_id] + ':' + options[:client_secret]).gsub("\n", '')
+        'Basic' + Base64.encode64(options[:client_id] + ':' + options[:client_secret]).gsub("\n", '')
       end
 
 
